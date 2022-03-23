@@ -41,6 +41,14 @@
           </div>
           {{ form.submit_button (class = 'mt-2')}}
         </form>
+
+        {% if already %}
+        <p>This link already exists! Check below:</p>
+        {% endif %}
+        {% if created_link %}
+          <p>Shortened Link: <a href="{{ created_link }}">{{ created_link }}</a></p>
+        {% endif %}
+
         {% if form.link.errors %}
             <ul class="errors">
             {% for error in form.link.errors %}
@@ -49,6 +57,7 @@
             </ul>
         {% endif %}
       </div>
+      
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
